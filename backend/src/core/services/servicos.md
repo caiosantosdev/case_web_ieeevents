@@ -1,0 +1,1 @@
+Aqui vão ficar os serviços reais de usuario, evento e interesse. (aqui conecta com o banco de dados e faz as mudancas).
