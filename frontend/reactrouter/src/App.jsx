@@ -1,5 +1,6 @@
 import './App.css';
 
+
 //reaproveitamento de estrutura
 import { Outlet } from "react-router-dom";
 
@@ -10,8 +11,7 @@ function App() {
 
   return (
     <>
-      <Navbar></Navbar>
-      <h1>Rotas</h1>  
+      <Navbar></Navbar>  
       <Outlet /> 
       <p>Footer</p>
     </>

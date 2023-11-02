@@ -1,0 +1,25 @@
+
+:root {
+    --fonte-principal: 'Sansation', sans-serif;
+    --gradiente-fundo: linear-gradient(90deg, rgba(54, 157, 162, 0.35) 5.71%, rgba(33, 140, 199, 0.35) 67.8%, rgba(23, 133, 215, 0.35) 95.71%, rgba(24, 133, 214, 0.35) 95.71%);
+}
+
+.body {
+    font-family: var(--fonte-principal); 
+    font-weight: 400; 
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    
+}
+
+.cadastro {
+    text-align: center;
+    font: 'Sansation', sans-serif;
+    width: 150%;
+    height: auto;
+    padding: 5em;
+    background: var(--gradiente-fundo);
+    border-radius: 45px;
+
+}

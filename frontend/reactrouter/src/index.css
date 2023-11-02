@@ -14,6 +14,16 @@
   -webkit-text-size-adjust: 100%;
 }
 
+@font-face {
+  font-family: 'Sansation', sans-serif;
+  src: local('Sansation', sans-serif), url('./assets/fonts/Sansation_Bold.ttf') format('ttf'),
+}
+
+@font-face {
+  font-family: 'Sansation', sans-serif;
+  src: local('Sansation', sans-serif), url('./assets/fonts/Sansation_Regular.ttf') format('ttf'),
+}
+
 a {
   font-weight: 500;
   color: #646cff;
