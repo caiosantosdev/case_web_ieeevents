@@ -14,41 +14,88 @@ import MeusEventos from './routes/Meuseventos.jsx';
 import Login from './routes/login.jsx';
 import CriacaoEdicaoEvento from './routes/CriacaoEdicaoEvento.jsx';
 import Cadastro from './routes/cadastro.jsx';
+import PaginaErro from './routes/PaginaErro.jsx';
+
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <TelaEntrada />,
+//   },
+//   {
+//     path: "principal",
+//     element: <TelaPrincipal />,
+//   },
+//   {
+//     path: "perfil",
+//     element: <Perfil />,
+//   },
+//   {
+//     path: "evento",
+//     element: <PaginaDoEvento />,
+//   },
+//   {
+//     path: "meus-eventos",
+//     element: <MeusEventos />,
+//   },
+//   {
+//     path: "login",
+//     element: <Login />,
+//   },
+//   {
+//     path: "criacao-edicao",
+//     element: <CriacaoEdicaoEvento />,
+//   },
+//   {
+//     path: "cadastro",
+//     element: <Cadastro />,
+//   },
+
+// ])
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <TelaEntrada />,
-  },
-  {
-    path: "principal",
-    element: <TelaPrincipal />,
-  },
-  {
-    path: "perfil",
-    element: <Perfil />,
-  },
-  {
-    path: "evento",
-    element: <PaginaDoEvento />,
-  },
-  {
-    path: "meus-eventos",
-    element: <MeusEventos />,
-  },
-  {
-    path: "login",
-    element: <Login />,
-  },
-  {
-    path: "criacao-edicao",
-    element: <CriacaoEdicaoEvento />,
-  },
-  {
-    path: "cadastro",
-    element: <Cadastro />,
-  },
+    element: <App />,
+    //pagina de erro
+    errorElement: <PaginaErro />,
+    children: [
+      
+      {
+        path: "/",
+        element: <TelaEntrada />,
+      },
+      {
+        path: "principal",
+        element: <TelaPrincipal />,
+      },
+      {
+        path: "perfil",
+        element: <Perfil />,
+      },
+      {
+        path: "evento",
+        element: <PaginaDoEvento />,
+      },
+      {
+        path: "meus-eventos",
+        element: <MeusEventos />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "criacao-edicao",
+        element: <CriacaoEdicaoEvento />,
+      },
+      {
+        path: "cadastro",
+        element: <Cadastro />,
+      },
 
+    ]
+  },
+  
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
