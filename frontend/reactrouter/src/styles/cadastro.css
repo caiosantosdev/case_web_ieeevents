@@ -1,6 +1,10 @@
+@font-face {
+    font-family: 'Sansation';
+    src: local('Sansation'), url(../assets/fonts/Sansation_Regular.ttf) format('ttf');
+}
 
 :root {
-    --fonte-principal: 'Sansation', sans-serif;
+    --fonte-principal: 'Sansation';
     --gradiente-fundo: linear-gradient(90deg, rgba(54, 157, 162, 0.35) 5.71%, rgba(33, 140, 199, 0.35) 67.8%, rgba(23, 133, 215, 0.35) 95.71%, rgba(24, 133, 214, 0.35) 95.71%);
 }
 
