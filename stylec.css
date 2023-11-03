@@ -1,0 +1,238 @@
+.container1 {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container-register {
+    width: 100%;
+    min-height: 100vh;
+
+    display:  flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 15px;
+
+    background-color: #fff;
+} 
+.wrap-register{ 
+    width:1600px;
+    height: 1500px;
+    background-color: rgba(34, 143, 160, 0.2);
+    overflow: hidden;
+    padding: 100px;
+   
+
+    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-bottom: 50px;
+
+}
+
+.register-form {
+    width: 100%;
+}
+
+.register-form-tittle {
+    width: 100%;
+    display: block;
+    font-size: 60px;
+    color: black;
+    font-weight: bold;
+    opacity: 1;
+
+    line-height: 1.2;
+    text-align:center;
+    height: 290px;
+    
+    
+}
+
+.register-form-tittle img {  
+    width: 20%;
+    margin-top: 50px ;
+    margin-left: 50px;
+   
+}
+
+
+.wrap-input{
+    width: 100%;
+    position: relative;
+    border-bottom:2px solid #adadad;
+    margin-bottom:0px;
+
+}
+
+
+.input {
+    font-size: 15px;
+    color: #133B6C;
+    line-height: 1.2;
+    border: none;
+    display: block;
+
+    width: 50%;
+    height: 45px;
+
+    background-color: transparent ;
+
+    padding: 0 5px;
+
+}
+
+.focus-input {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+
+    pointer-events: none;
+    color: #adadad;
+     
+}
+
+.focus-input::before{
+
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all a.4s;
+    -moz-transition: all a.4s;
+
+    background: -webkit-linear-gradient( to left, #369DA2, #218CC7, #1885D6 );
+    background: -o-linear-gradient( to left, #369DA2, #218CC7, #1885D6 );
+    background: -moz-linear-gradient( to left, #369DA2, #218CC7, #1885D6 );
+    background: linear-gradient( to left, #369DA2, #218CC7, #1885D6 );
+
+
+}
+
+.focus-input::after{
+    font-size: 15px;
+    color: #999999;
+    line-height: 1.2;
+
+    content: attr(data-placeholder);
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 16px;
+    left: 0px;
+    padding-left: 5px;
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all a.4s;
+    -moz-transition: all a.4s;
+
+}
+
+.input:focus{
+    outline: 0;
+}
+
+.input:focus + .focus-input::after{
+    top: -5px;
+}
+
+.input:focus + .focus-input::before{
+    width: 100%;
+}
+
+.has-val + .focus-input::after{
+    top: -5px;
+}
+
+.has-val + .focus-input::before{
+    width: 100%;
+}
+
+
+
+.container-register-form-btn{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 13px;
+
+}
+
+.register-form-btn{
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 20%;
+    height: 50px;
+    background:linear-gradient(  #369DA2, #218CC7, #1885D6 );
+    margin-left: 1120px;
+}
+
+.register-form-btn:hover{
+    cursor: pointer;
+}
+.container-voltar-form-btn{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 13px;
+
+}
+
+.voltar-form-btn{
+    font-size: 15px;
+    border-radius: 10px;
+    color: black;
+
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 20%;
+    height: 50px;
+    background-color: #fff;
+    margin-right: 1250px;
+    margin-top: -50px;
+    border-color: rgba(34, 143, 160, 1);
+    
+}
+
+.voltar-form-btn:hover{
+    cursor: pointer;
+}
+
+.text-center{
+    display: flex;
+    /**justify-content: center;
+    align-items: center;*/
+    left: 10px;
+    margin-top: 10px;
+}
+
+.txt2{
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+    line-height: 1.5;
+    text-decoration: none;
+    padding: auto;
+}
