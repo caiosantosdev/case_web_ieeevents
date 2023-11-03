@@ -1,15 +1,19 @@
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> }
- */
-exports.up = function(knex) {
-  
+
+exports.up = async function(knex) {
+    return knex.schema.createTable('events', (table)=> {
+        table.increments('id').unique();
+        table.string('nome').notNullable();
+        table.date('data').notNullable();
+        table.time('horario',{precision: 4}).notNullable();
+        table.string('imagem').notNullable();
+        table.text('descricao').notNullable();
+        table.integer('user_id')
+            .notNullable()
+            .references('user.id')
+            .onDelete('CASCADE');
+})
 };
 
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> }
- */
-exports.down = function(knex) {
-  
+exports.down = async function(knex) {
+    return knex.schema.dropTable('events');
 };
