@@ -1,12 +1,20 @@
 const express = require('express')
 const routes = express.Router()
 
-const ItemController = require('../controllers/userController')
+const userController = require('./controllers/userController')
+const eventController = require('./controllers/eventController')
 
 routes
-    .get('/item/:id?', ItemController.index)
-    .post('/item', ItemController.create)
-    .put('/item/:id', ItemController.update)
-    .delete('/item/:id', ItemController.delete)
+    // USUÁRIO
+    .get('/user/:id?', userController.index)
+    .post('/user', userController.create)
+    .put('/user/:id', userController.update)
+    .delete('/user/:id', userController.delete)
 
+    //EVENTO
+    .get('/events/:id?', eventController.index)
+    .post('/events', eventController.create)
+    .put('/events/:id', eventController.update)
+    .delete('/events/:id', eventController.delete)
+    
 module.exports = routes
