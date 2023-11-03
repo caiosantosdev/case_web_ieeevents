@@ -1,0 +1,39 @@
+@import url(fonte.css);
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700&display=swap');
+
+.footer {
+    background-color: #1454a4;
+    text-decoration: none;
+    
+}
+
+.footer__conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__links {
+    margin-left: 5%;
+    display: flex;
+    gap: 20px;
+    
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    font-family: 'Rubik', sans-serif;
+}
+
+.footer__midias {
+    margin-right: 5%;
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+
+}
+.icone {
+    width: 60%;
+}   
