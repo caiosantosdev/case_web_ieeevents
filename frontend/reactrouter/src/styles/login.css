@@ -1,17 +1,19 @@
 @import url(fonte.css);
 
-:root {
-    --fonte-principal: 'SansationBold';
-    --gradiente-fundo: linear-gradient(90deg, rgba(54, 157, 162, 0.35) 5.71%, rgba(33, 140, 199, 0.35) 67.8%, rgba(23, 133, 215, 0.35) 95.71%, rgba(24, 133, 214, 0.35) 95.71%);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
 }
 
-.container1 {
-    font-family: var();
+.container {
     width: 100%;
     margin: 0 auto;
+    font-family: SansationBold;
 }
 
-.container-register {
+.container-login {
     width: 100%;
     min-height: 100vh;
 
@@ -22,57 +24,51 @@
     
     padding: 15px;
 
-    background-color: #fff;
+    background-image: url("../assets/imagens/IEEEfundo.png");
+    background-size: auto;
 } 
-.wrap-register{ 
-    width:1600px;
-    height: 1500px;
-    background-color: rgba(34, 143, 160, 0.2);
+
+.wrap-login { 
+    width: 390px;
+    background-color:#fff;
+    border-radius: 10px;
     overflow: hidden;
-    padding: 100px;
-   
+    padding: 30px 55px 33px 55px ;
 
     box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    margin-bottom: 50px;
 
 }
 
-.register-form {
+.login-form {
     width: 100%;
+    
 }
 
-.register-form-tittle {
-    width: 100%;
+.login-form-tittle {
     display: block;
-    font-size: 60px;
-    color: black;
-    font-weight: bold;
-    opacity: 1;
+    font-size: 30px;
+    color: #133B6C;
 
     line-height: 1.2;
-    text-align:center;
-    height: 290px;
-    
-    
-}
-
-.register-form-tittle img {  
-    width: 20%;
-    margin-top: 50px ;
-    margin-left: 50px;
+    text-align: center;
+    margin-bottom: 15px;
    
+
 }
 
+.login-form-tittle img {  
+    width: 50%;
+}
 
 .wrap-input{
     width: 100%;
     position: relative;
     border-bottom:2px solid #adadad;
-    margin-bottom:0px;
+    margin-top: 15px;
+    
+    
 
 }
-
 
 .input {
     font-size: 15px;
@@ -80,8 +76,9 @@
     line-height: 1.2;
     border: none;
     display: block;
+    
 
-    width: 50%;
+    width: 100%;
     height: 45px;
 
     background-color: transparent ;
@@ -138,6 +135,7 @@
     top: 16px;
     left: 0px;
     padding-left: 5px;
+    
 
     -webkit-transition: all 0.4s;
     -o-transition: all a.4s;
@@ -167,7 +165,7 @@
 
 
 
-.container-register-form-btn{
+.container-login-form-btn{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -175,72 +173,47 @@
 
 }
 
-.register-form-btn{
+.login-form-btn{
     font-size: 15px;
     border: none;
     border-radius: 10px;
     color: #fff;
 
     line-height: 1.2;
-    text-transform: uppercase;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    width: 20%;
-    height: 50px;
-    background:linear-gradient(  #369DA2, #218CC7, #1885D6 );
-    margin-left: 1120px;
+    margin-top: 5%;
+    width: 100%;
+    height: 30px;
+    background-color: #133B6C;
 }
 
-.register-form-btn:hover{
-    cursor: pointer;
-}
-.container-voltar-form-btn{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-bottom: 13px;
-
-}
-
-.voltar-form-btn{
-    font-size: 15px;
-    border-radius: 10px;
-    color: black;
-
-    line-height: 1.2;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 50%;
-    height: 50px;
-    background-color: #fff;
-    margin-right: 1250px;
-    margin-top: -50px;
-    border-color: rgba(34, 143, 160, 1);
-    
-}
-
-.voltar-form-btn:hover{
+.login-form-btn:hover{
     cursor: pointer;
 }
 
 .text-center{
     display: flex;
+    gap: 5px;
     /**justify-content: center;
     align-items: center;*/
     left: 10px;
     margin-top: 10px;
 }
 
-.txt2{
+.txt1{
     font-size: 14px;
     color: black;
     font-weight: bold;
     line-height: 1.5;
     text-decoration: none;
-    padding: auto;
+}
+
+#txt2 {
+    font-size: 14px;
+    color: #0C6FE3;
+    line-height: 1.5;
+    text-decoration: underline;
 }
