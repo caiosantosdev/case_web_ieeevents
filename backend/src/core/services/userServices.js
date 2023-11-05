@@ -1,1 +1,0 @@
-// readOne, cadastrarUsuario, atualizarUsuario, deletarUsuario.

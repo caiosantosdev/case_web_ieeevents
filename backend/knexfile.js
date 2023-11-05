@@ -2,15 +2,16 @@
 module.exports = {
 
   development: {
-    client: 'mysql2',
+    client: 'mysql',
     connection: {
       database:"IEEE",
+      host: "localhost",
       user: "root",
-      password: ""
+      password: "ieeevents"
     },
     migrations: {
       tableName: 'migrations',
-      directory: './src/core/database/migrations'
+      directory: './src/database/migrations'
 
     }
   }
