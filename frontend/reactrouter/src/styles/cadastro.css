@@ -3,17 +3,47 @@
 :root {
     --fonte-principal: 'SansationBold';
     --gradiente-fundo: linear-gradient(90deg, rgba(54, 157, 162, 0.35) 5.71%, rgba(33, 140, 199, 0.35) 67.8%, rgba(23, 133, 215, 0.35) 95.71%, rgba(24, 133, 214, 0.35) 95.71%);
+    --fundo-botao: linear-gradient(90deg, #369DA2 5.71%, #218CC7 67.8%, #1785D7 95.71%, #1885D6 95.71%);
+
+
+}
+
+
+.logo {
+    width: 120px;    
 }
 
 .container1 {
-    font-family: var();
-    width: 100%;
+    font-family: var(--fonte-principal);
+    width: 80%;
     margin: 0 auto;
 }
 
+.container__titulo {
+    display: flex;
+    flex-direction: column;    
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 2em;
+}
+
+.titulo-principal {
+    font-size: 32px;
+}
+
+.container__nomesobre{
+    display: flex;
+    gap: 50px;
+}
+
+.container__telCPF {
+    display: flex;
+    gap: 50px;   
+}
 .container-register {
     width: 100%;
-    min-height: 100vh;
+    min-height: auto;
 
     display:  flex;
     flex-wrap: wrap;
@@ -25,16 +55,17 @@
     background-color: #fff;
 } 
 .wrap-register{ 
-    width:1600px;
-    height: 1500px;
+    width: 70%;
+    
     background-color: rgba(34, 143, 160, 0.2);
     overflow: hidden;
-    padding: 100px;
+    padding: 2em 3em;
    
 
     box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    margin-bottom: 50px;
+    margin: 2em 0 2em 0;
+   
 
 }
 
@@ -70,13 +101,15 @@
     position: relative;
     border-bottom:2px solid #adadad;
     margin-bottom:0px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
 
 }
 
 
 .input {
     font-size: 15px;
-    color: #133B6C;
+    color: #000000;
     line-height: 1.2;
     border: none;
     display: block;
@@ -100,7 +133,7 @@
     left: 0;
 
     pointer-events: none;
-    color: #adadad;
+    color: rgb(0, 0, 0);
      
 }
 
@@ -126,9 +159,10 @@
 
 }
 
+/* placeholder */
 .focus-input::after{
     font-size: 15px;
-    color: #999999;
+    color: #000000cb;
     line-height: 1.2;
 
     content: attr(data-placeholder);
@@ -172,25 +206,30 @@
     flex-wrap: wrap;
     justify-content: center;
     padding-bottom: 13px;
+    
+
+    
 
 }
 
+
+/* cadastro */
 .register-form-btn{
     font-size: 15px;
     border: none;
     border-radius: 10px;
     color: #fff;
-
+    
     line-height: 1.2;
-    text-transform: uppercase;
-    display: flex;
+    font-family: Sansation;
+    display: block;
     justify-content: center;
     align-items: center;
 
-    width: 20%;
-    height: 50px;
-    background:linear-gradient(  #369DA2, #218CC7, #1885D6 );
-    margin-left: 1120px;
+    width: 30%;
+    height: 45px;
+    background: var(--fundo-botao);
+    
 }
 
 .register-form-btn:hover{
@@ -201,9 +240,11 @@
     flex-wrap: wrap;
     justify-content: center;
     padding-bottom: 13px;
+    
 
 }
 
+/* voltar botao */
 .voltar-form-btn{
     font-size: 15px;
     border-radius: 10px;
@@ -214,12 +255,12 @@
     justify-content: center;
     align-items: center;
 
-    width: 50%;
-    height: 50px;
+    width: 30%;
+    height: 45px;
     background-color: #fff;
-    margin-right: 1250px;
-    margin-top: -50px;
-    border-color: rgba(34, 143, 160, 1);
+    font-family: Sansation;
+    
+    border-color: #218CC7;
     
 }
 
@@ -243,3 +284,21 @@
     text-decoration: none;
     padding: auto;
 }
+
+#voltar {
+    
+    margin-top: 15%;
+    margin-right: 40%;
+    
+}
+
+#cadastrar {
+
+    margin-top: 15%;
+    
+}
+
+
+
+
+  
