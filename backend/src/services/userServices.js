@@ -2,7 +2,7 @@
 const knex = require('./../database/index');
 const bcrypt = require('bcrypt');
 
-async function Crypt(senha){
+async function crypt(senha){
         const saltRounds = 10;
         return await bcrypt.hash(senha, saltRounds);
 }
@@ -12,11 +12,9 @@ async function readAll(){
 }
 async function readUser(id){
     try{
-        
         const user = await knex('users').select('*')
                                         .where({id})
-                                        .first()
-                                        
+                                        .first()         
         if(!user)throw new Error("ERRO: Usuario Nao Existe.");
         
         return user;
@@ -32,7 +30,7 @@ async function cadastroUsuario(nome, sobrenome, telefone, cpf, endereco, email, 
                                 .where({email: email})
                                 .first()
         //console.log(validEmail);
-        if(validEmail) throw new Error("ERRO: Email ja Cadastrado");
+        if(validEmail) throw new Error("ERRO: Email já Cadastrado");
         //console.log("email validado");
 
         //verificacao de "cpf ja existente"
@@ -40,7 +38,7 @@ async function cadastroUsuario(nome, sobrenome, telefone, cpf, endereco, email, 
                                 .select('*')
                                 .where({cpf : cpf});
         if(validCPF != ""){
-        throw new Error("cpf já cadastrado!");
+        throw new Error("Cpf já Cadastrado!");
         }
 
         //verificacao de "telefone ja existente"
@@ -48,9 +46,9 @@ async function cadastroUsuario(nome, sobrenome, telefone, cpf, endereco, email, 
                     .select('*')
                     .where({ telefone : telefone});
         if(validPhone != ""){
-        throw new Error("telefone ja cadastrado");
+        throw new Error("Telefone ja Cadastrado");
         }
-        const hashedPassword = await Crypt(senha);
+        const hashedPassword = await crypt(senha);
         
         const newUser = {
             nome: nome,
@@ -77,28 +75,30 @@ async function cadastroUsuario(nome, sobrenome, telefone, cpf, endereco, email, 
 }
 async function atualizaUsuario( updUser, id ){
     try{
-        //console.log("2")
         const user = await knex('users').select('*')
                                         .where({id})
                                         .first()
-        //console.log("3")
         if(!user)throw new Error("ERRO: Usuario Nao Existe.");
-
+        
         const validEmail = await knex('users')
                                     .select('email')
                                     .where({email: updUser.email})
                                     .first()
         if(validEmail) throw new Error("ERRO: Email ja Cadastrado");
+        //teste telefone para colocar abaixo
+        
 
-        //console.log("4")
-        if (updUser.senha)
-            updUser.senha = await Crypt(updUser.senha);
-        console.log(updUser)
 
+        //encriptação de senha
+        if (updUser.senha){
+            updUser.senha = await crypt(updUser.senha);
+        }
+        //console.log(updUser)
+        //update
         await knex('users')
             .update( updUser )
             .where({ id })
-        //console.log("5")
+        
         return {
             status: true,
             message: "Usuario Atualizado com Sucesso"
@@ -132,11 +132,40 @@ async function deletaUsuario(id){
         };
     }
 }
+async function login(email, senha){
+    try{
+        const validEmail = await knex('users')
+                                .select('email')
+                                .where({email: email})
+                                .first();
+        if(!validEmail){
+            return{
+                status:false,
+                message: "Email não cadastrado"
+            };
+        }
+        const BDpassword = await knex('users')
+                                .select('senha')
+                                .where({email : email})
+                                .first();
+
+        const valid = bcrypt.compareSync(senha, BDpassword);
+        if(!valid) throw new Error('Senha incorreta');
+
+    }catch(error){
+        return {
+            status: false,
+            message: error.message,
+        };
+    }
+}
+
 
 module.exports = {
     readAll,
     readUser,
     cadastroUsuario,
     atualizaUsuario,
-    deletaUsuario
+    deletaUsuario,
+    login
 }

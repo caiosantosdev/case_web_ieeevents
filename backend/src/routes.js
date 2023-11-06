@@ -10,6 +10,8 @@ routes.get('/user/:id', userController.readOne);
 routes.post('/user', userController.create);
 routes.put('/user/:id', userController.update);
 routes.delete('/user/:id', userController.delete);
+routes.post('/user/login', userController.login);
+
 
 //EVENTO
 // routes.get('/events/:id', eventController.index);
