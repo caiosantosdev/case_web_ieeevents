@@ -28,12 +28,28 @@ async function cadastroUsuario(nome, sobrenome, telefone, cpf, endereco, email, 
     try{
         //console.log("validando email");
         const validEmail = await knex('users')
-                                    .select('email')
-                                    .where({email: email})
-                                    .first()
+                                .select('email')
+                                .where({email: email})
+                                .first()
         //console.log(validEmail);
         if(validEmail) throw new Error("ERRO: Email ja Cadastrado");
         //console.log("email validado");
+
+        //verificacao de "cpf ja existente"
+        const validCPF = await knex('users')
+                                .select('*')
+                                .where({cpf : cpf});
+        if(validCPF != ""){
+        throw new Error("cpf já cadastrado!");
+        }
+
+        //verificacao de "telefone ja existente"
+        const validPhone = await knex('users')
+                    .select('*')
+                    .where({ telefone : telefone});
+        if(validPhone != ""){
+        throw new Error("telefone ja cadastrado");
+        }
         const hashedPassword = await Crypt(senha);
         
         const newUser = {
@@ -104,6 +120,7 @@ async function deletaUsuario(id){
         await knex('users')
             .where({ id })
             .delete()
+        //colocar todos os deletes das tabelas quando fizer eventos e interesses.
         return {
             status: true,
             message: "Usuario Deletado com Sucesso"
