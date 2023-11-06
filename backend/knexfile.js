@@ -4,10 +4,10 @@ module.exports = {
   development: {
     client: 'mysql',
     connection: {
-      database:"IEEE",
+      database:"ieee",
       host: "localhost",
       user: "root",
-      password: "ieeevents"
+      password: ""
     },
     migrations: {
       tableName: 'migrations',

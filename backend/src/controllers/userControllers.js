@@ -12,12 +12,10 @@ module.exports = {
     },
     async readOne(req, res){
         try{
-            if(!req.params) throw new Error('Solicitacao invalida.');
-
-            const result = await readUser(req.params)
-
-            //if(!result)throw new Error("Usuario nao existe.");
-
+            if(!req.params.id) throw new Error('Solicitacao invalida.');
+            
+            const result = await readUser(req.params.id)
+            
             return res.json(result);
             
         }catch(error){
@@ -33,9 +31,9 @@ module.exports = {
                 cpf,
                 endereco,
                 email,
-                senha,
+                senha
             } = req.body;
-            console.log("passou do create");
+            //console.log("passou do create");
             const cadastrado = await cadastroUsuario(
                 nome,
                 sobrenome,
@@ -52,9 +50,37 @@ module.exports = {
     },
     async update(req, res){
         try{
-
+            const updUser = {
+                nome,
+                sobrenome,
+                telefone,
+                cpf,
+                endereco,
+                email,
+                senha
+            } = req.body;
+            //let updUser = {}
+        /*if(nome)
+            updUser.nome=nome
+        if(sobrenome)
+            updUser.sobrenome=sobrenome
+        if(telefone)
+            updUser.telefone=telefone
+        if(cpf)
+            updUser.cpf=cpf
+        if(endereco)
+            updUser.endereco=endereco
+        if(email)
+            updUser.email=email
+        if(senha)
+            updUser.senha= senha;
+            */
+            const { id } = req.params
+            //console.log("1")
+            const result = await atualizaUsuario( updUser, id )
+            return res.json(result)
         }catch(error){
-            
+            return res.json({message:error.message});
         }
     }
 

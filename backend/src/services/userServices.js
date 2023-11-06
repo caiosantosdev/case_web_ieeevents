@@ -10,12 +10,15 @@ async function readAll(){
         const usuarios = await knex('users').select('*');
         return {usuarios};
 }
-async function readUser(){
+async function readUser(id){
     try{
+        
         const user = await knex('users').select('*')
                                         .where({id})
                                         .first()
-    
+                                        
+        if(!user)throw new Error("Usuario Nao Existe.");
+        
         return user;
       }catch(e){
         throw e;
@@ -23,16 +26,16 @@ async function readUser(){
 }
 async function cadastroUsuario(nome, sobrenome, telefone, cpf, endereco, email, senha){
     try{
-        console.log("validando email");
+        //console.log("validando email");
         const validEmail = await knex('users')
                                     .select('email')
                                     .where({email: email})
-
-        console.log(validEmail);
+                                    .first()
+        //console.log(validEmail);
         if(validEmail){
-            throw new Error("email ja cadastrado");
+            throw new Error("Email ja Cadastrado");
         }
-        console.log("email validado");
+        //console.log("email validado");
         const hashedPassword = await Crypt(senha);
         
         const newUser = {
@@ -49,7 +52,7 @@ async function cadastroUsuario(nome, sobrenome, telefone, cpf, endereco, email, 
 
         return {
             status: true,
-            message: "usuario cadastrado com sucesso"
+            message: "Usuario Cadastrado com Sucesso"
         };
     }catch(error){
         return {
@@ -58,8 +61,33 @@ async function cadastroUsuario(nome, sobrenome, telefone, cpf, endereco, email, 
         };
     }
 }
-async function atualizaUsuario(){
+async function atualizaUsuario( updUser, id ){
+    try{
+        //console.log("2")
+        const user = await knex('users').select('*')
+                                        .where({id})
+                                        .first()
+        //console.log("3")
+        if(!user)throw new Error("Usuario Nao Existe.");
+        //console.log("4")
+        if (updUser.senha)
+            updUser.senha = await Crypt(updUser.senha);
+        console.log(updUser)
 
+        await knex('users')
+            .update( updUser )
+            .where({ id })
+        //console.log("5")
+        return {
+            status: true,
+            message: "Usuario Atualizado com Sucesso"
+        };
+    }catch(error){
+        return {
+            status: false,
+            message: error.message,
+        };
+    }
 }
 async function deletaUsuario(){
     
