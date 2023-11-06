@@ -9,7 +9,7 @@ routes.get('/user', userController.index);
 routes.get('/user/:id', userController.readOne);
 routes.post('/user', userController.create);
 routes.put('/user/:id', userController.update);
-//routes.delete('/user/:id', userController.delete);
+routes.delete('/user/:id', userController.delete);
 
 //EVENTO
 // routes.get('/events/:id', eventController.index);

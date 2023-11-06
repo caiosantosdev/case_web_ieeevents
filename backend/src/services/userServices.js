@@ -17,7 +17,7 @@ async function readUser(id){
                                         .where({id})
                                         .first()
                                         
-        if(!user)throw new Error("Usuario Nao Existe.");
+        if(!user)throw new Error("ERRO: Usuario Nao Existe.");
         
         return user;
       }catch(e){
@@ -32,9 +32,7 @@ async function cadastroUsuario(nome, sobrenome, telefone, cpf, endereco, email, 
                                     .where({email: email})
                                     .first()
         //console.log(validEmail);
-        if(validEmail){
-            throw new Error("Email ja Cadastrado");
-        }
+        if(validEmail) throw new Error("ERRO: Email ja Cadastrado");
         //console.log("email validado");
         const hashedPassword = await Crypt(senha);
         
@@ -68,7 +66,14 @@ async function atualizaUsuario( updUser, id ){
                                         .where({id})
                                         .first()
         //console.log("3")
-        if(!user)throw new Error("Usuario Nao Existe.");
+        if(!user)throw new Error("ERRO: Usuario Nao Existe.");
+
+        const validEmail = await knex('users')
+                                    .select('email')
+                                    .where({email: updUser.email})
+                                    .first()
+        if(validEmail) throw new Error("ERRO: Email ja Cadastrado");
+
         //console.log("4")
         if (updUser.senha)
             updUser.senha = await Crypt(updUser.senha);
@@ -89,8 +94,26 @@ async function atualizaUsuario( updUser, id ){
         };
     }
 }
-async function deletaUsuario(){
-    
+async function deletaUsuario(id){
+    try{
+        const user = await knex('users').select('*')
+                                        .where({id})
+                                        .first()
+        if(!user)throw new Error("ERRO: Usuario Nao Existe.");
+
+        await knex('users')
+            .where({ id })
+            .delete()
+        return {
+            status: true,
+            message: "Usuario Deletado com Sucesso"
+        };
+    }catch(error){
+        return {
+            status: false,
+            message: error.message,
+        };
+    }
 }
 
 module.exports = {

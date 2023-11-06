@@ -50,6 +50,7 @@ module.exports = {
     },
     async update(req, res){
         try{
+            if(!req.params.id) throw new Error('Solicitacao invalida.');
             const updUser = {
                 nome,
                 sobrenome,
@@ -78,6 +79,15 @@ module.exports = {
             const { id } = req.params
             //console.log("1")
             const result = await atualizaUsuario( updUser, id )
+            return res.json(result)
+        }catch(error){
+            return res.json({message:error.message});
+        }
+    },async delete(req, res){
+        try{
+            if(!req.params.id) throw new Error('Solicitacao invalida.');
+
+            const result = await deletaUsuario( req.params.id )
             return res.json(result)
         }catch(error){
             return res.json({message:error.message});
