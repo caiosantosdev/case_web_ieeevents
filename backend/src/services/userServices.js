@@ -1,6 +1,8 @@
 // readOne, cadastrarUsuario, atualizarUsuario, deletarUsuario.
 const knex = require('./../database/index');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
 
 async function crypt(senha){
         const saltRounds = 10;
@@ -132,26 +134,52 @@ async function deletaUsuario(id){
         };
     }
 }
-async function login(email, senha){
+async function loginService(email, senha){
     try{
+        console.log("entrou no login");
+        if(!email || !senha){
+            throw new Error("preencha todos os campos");
+        }
+        console.log("email e senha preenchidos");
         const validEmail = await knex('users')
                                 .select('email')
                                 .where({email: email})
                                 .first();
         if(!validEmail){
             return{
-                status:false,
+                status: false,
                 message: "Email não cadastrado"
             };
         }
+        console.log("email validado")
         const BDpassword = await knex('users')
                                 .select('senha')
                                 .where({email : email})
                                 .first();
-
-        const valid = bcrypt.compareSync(senha, BDpassword);
-        if(!valid) throw new Error('Senha incorreta');
-
+        const salt = 10;
+        const valid = await bcrypt.compare(senha, BDpassword.senha);
+        if(valid == false) throw new Error('Senha incorreta');
+        console.log("senha validada");
+        const { id } = await knex('users')
+                            .select('id')
+                            .where({email : email})
+                            .first();
+        console.log("entrou no secret");
+        const secret = "HHGKDJDKASUIRB3I2GYI532YV5328V&*CUE";
+        console.log("passou do secret");
+        console.log(secret);
+        const token =  jwt.sign(
+            {
+                id: id,
+            },
+            secret,
+        );
+        console.log("token feito");
+        return{
+            status: true,
+            message: "Usuario autenticado com sucesso",
+            token
+        }
     }catch(error){
         return {
             status: false,
@@ -167,5 +195,5 @@ module.exports = {
     cadastroUsuario,
     atualizaUsuario,
     deletaUsuario,
-    login
+    loginService
 }

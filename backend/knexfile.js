@@ -7,7 +7,7 @@ module.exports = {
       database:"ieee",
       host: "localhost",
       user: "root",
-      password: ""
+      password: "ieeevents"
     },
     migrations: {
       tableName: 'migrations',

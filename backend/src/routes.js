@@ -3,14 +3,15 @@ const routes = express.Router()
 
 const userController = require('./controllers/userControllers')
 // const eventController = require('./controllers/eventControllers')
+const Auth = require('./middlewares/Authentication.js');
 
 // USUÁRIO
-routes.get('/user', userController.index);
-routes.get('/user/:id', userController.readOne);
-routes.post('/user', userController.create);
-routes.put('/user/:id', userController.update);
-routes.delete('/user/:id', userController.delete);
-routes.post('/user/login', userController.login);
+routes.get('/user', userController.indexController);
+routes.get('/user/:id', Auth,  userController.readOneController);
+routes.post('/user', userController.createController);
+routes.put('/user/:id', Auth, userController.updateController);
+routes.delete('/user/:id', Auth, userController.deleteController);
+routes.post('/user/login', userController.loginController);
 
 
 //EVENTO

@@ -1,8 +1,8 @@
-const { readAll, readUser, cadastroUsuario, atualizaUsuario, deletaUsuario, login} = require('./../services/userServices');
+const { readAll, readUser, cadastroUsuario, atualizaUsuario, deletaUsuario, loginService} = require('./../services/userServices');
 
 
 module.exports = {
-    async index(req, res){
+    async indexController(req, res){
         try{
             const results = await readAll();
             res.json(results);
@@ -10,7 +10,7 @@ module.exports = {
             res.send({message:"Erro"})
         }
     },
-    async readOne(req, res){
+    async readOneController(req, res){
         try{
             if(!req.params.id) throw new Error('Solicitacao invalida.');
             
@@ -22,7 +22,7 @@ module.exports = {
             res.json({message:error.message});
         }
     },
-    async create(req, res){
+    async createController(req, res){
         try{
             const {
                 nome,
@@ -48,7 +48,7 @@ module.exports = {
             return res.json({message:error.message});
         }
     },
-    async update(req, res){
+    async updateController(req, res){
         try{
             if(!req.params.id) throw new Error('Solicitacao invalida.');
             const updUser = {
@@ -69,7 +69,7 @@ module.exports = {
             return res.json({message:error.message});
         }
     },
-    async delete(req, res){
+    async deleteController(req, res){
         try{
             if(!req.params.id) throw new Error('Solicitacao invalida.');
 
@@ -79,9 +79,14 @@ module.exports = {
             return res.json({message:error.message});
         }
     },
-    async login(req, res){
+    async loginController(req, res){
         try{
-
+            console.log("entrou no controller");
+            const { email , senha } = req.body;
+            console.log("passou aqui");
+            const  login = await loginService(email, senha);
+            console.log("passou do login");
+            return res.json(login);
         }catch(error){
             return res.json({message:error.message});
         }
