@@ -1,13 +1,14 @@
+require('dotenv').config();
 
 module.exports = {
 
   development: {
     client: 'mysql',
     connection: {
-      database:"ieee",
-      host: "localhost",
-      user: "root",
-      password: "ieeevents"
+      database:process.env.DB_NAME,
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASS
     },
     migrations: {
       tableName: 'migrations',

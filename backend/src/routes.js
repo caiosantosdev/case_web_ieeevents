@@ -7,6 +7,7 @@ const Auth = require('./middlewares/Authentication.js');
 
 // USUÁRIO
 routes.get('/user', userController.indexController);
+//erro na autenticacao da visualizacao privada do get com id
 routes.get('/user/:id', Auth,  userController.readOneController);
 routes.post('/user', userController.createController);
 routes.put('/user/:id', Auth, userController.updateController);

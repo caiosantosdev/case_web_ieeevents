@@ -81,11 +81,8 @@ module.exports = {
     },
     async loginController(req, res){
         try{
-            console.log("entrou no controller");
             const { email , senha } = req.body;
-            console.log("passou aqui");
             const  login = await loginService(email, senha);
-            console.log("passou do login");
             return res.json(login);
         }catch(error){
             return res.json({message:error.message});

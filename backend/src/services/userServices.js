@@ -2,6 +2,7 @@
 const knex = require('./../database/index');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 
 async function crypt(senha){
@@ -165,7 +166,7 @@ async function loginService(email, senha){
                             .where({email : email})
                             .first();
         console.log("entrou no secret");
-        const secret = "HHGKDJDKASUIRB3I2GYI532YV5328V&*CUE";
+        const secret = process.env.SECRET;
         console.log("passou do secret");
         console.log(secret);
         const token =  jwt.sign(
