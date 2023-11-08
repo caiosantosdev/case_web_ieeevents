@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.container{
+    width: 100%;
+    height: 1100px;
+
+    display:  block;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 5px;
+
+    background-image: url("../../assets/imagens/IEEEfundo.png");
+    zoom: 65%;
+
+} 
+
+.desc1{
+    width: 45%;
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    top: -10px;
+    height: 870px;
+    margin-left: 220px;
+}
+.desc2{
+    width: 45%;
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    top: -10px;
+    margin-left: 20px;
+    margin-top: -610px;
+}
+
+#gradiente{
+    background: linear-gradient(to right, #369DA2, #218CC7, #1885D6);
+    -webkit-background-clip: text; /* Para navegadores WebKit (Safari, Chrome) */
+    background-clip: text;
+    color: transparent; /* Define a cor do texto como transparente para que o gradiente seja visível através do texto */
+    display: inline-block;
+}
+

@@ -9,7 +9,7 @@ const Footer = () => {
     <nav className="footer">
         <div className="footer__conteudo">
             <div className="footer__links">
-                <Link to="/principal" className="link">Tela Principal</Link>
+                <Link to="/" className="link">Início</Link>
                 <Link to="/" className="link">Termos e Políticas</Link>
             </div>
             <div className="footer__midias">
