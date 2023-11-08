@@ -15,7 +15,7 @@ function checkToken(req, res , next) {
     }
 
     if(!token){
-        res.json({"message" : "Usuario nao encontrado"});
+        return res.json({"message" : "Usuario nao encontrado"});
 
     }
     console.log("entrou no try");

@@ -10,7 +10,12 @@ async function crypt(senha){
         return await bcrypt.hash(senha, saltRounds);
 }
 async function readAll(){
-        const usuarios = await knex('users').select('*');
+        const usuarios = await knex('users').select('nome' ,
+                                                     'sobrenome',
+                                                      'telefone',
+                                                       'cpf',
+                                                        'endereco',
+                                                         'email');
         return {usuarios};
 }
 async function readUser(id){
@@ -137,11 +142,9 @@ async function deletaUsuario(id){
 }
 async function loginService(email, senha){
     try{
-        console.log("entrou no login");
         if(!email || !senha){
             throw new Error("preencha todos os campos");
         }
-        console.log("email e senha preenchidos");
         const validEmail = await knex('users')
                                 .select('email')
                                 .where({email: email})
@@ -152,7 +155,6 @@ async function loginService(email, senha){
                 message: "Email não cadastrado"
             };
         }
-        console.log("email validado")
         const BDpassword = await knex('users')
                                 .select('senha')
                                 .where({email : email})
@@ -160,22 +162,17 @@ async function loginService(email, senha){
         const salt = 10;
         const valid = await bcrypt.compare(senha, BDpassword.senha);
         if(valid == false) throw new Error('Senha incorreta');
-        console.log("senha validada");
         const { id } = await knex('users')
                             .select('id')
                             .where({email : email})
                             .first();
-        console.log("entrou no secret");
         const secret = process.env.SECRET;
-        console.log("passou do secret");
-        console.log(secret);
         const token =  jwt.sign(
             {
                 id: id,
             },
             secret,
         );
-        console.log("token feito");
         return{
             status: true,
             message: "Usuario autenticado com sucesso",
