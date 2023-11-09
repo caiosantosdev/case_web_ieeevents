@@ -24,6 +24,11 @@ const Cadastro = () => {
         sethidden(!hidden)    
     }
 
+    function formatName(name) {
+        if (!name) return ''; 
+        name = name.trim(); 
+        return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();}
+
    
 
     return (
@@ -50,12 +55,12 @@ const Cadastro = () => {
                     <div className="container__nomesobre">
                         <div className="wrap-input">
                             <input className={name !== "" ? 'has-val input' : 'input'} type='name'
-                                value={name} onChange={e => setName(e.target.value)} />
+                                value={name} onChange={e =>setName(formatName(e.target.value))} />
                             <span className="focus-input" data-placeholder="Nome"></span>
                         </div>
                         <div className="wrap-input">
                             <input className={lastName !== "" ? 'has-val input' : 'input'} type='name'
-                                value={lastName} onChange={e => setLastName(e.target.value)} />
+                                value={lastName} onChange={e =>setLastName(formatName(e.target.value))} />
                             <span className="focus-input" data-placeholder="Sobrenome"></span>
                         </div>
                     </div>

@@ -136,9 +136,11 @@
 
 .icone_olho {
    
-    width: 50px;
-    height: 30px;
+    width: 45px;
+    height: 25px;
+    margin-bottom: 3px;
     cursor: pointer;
+    color: rgba(0, 0, 0, 0.603)
   
 }
 

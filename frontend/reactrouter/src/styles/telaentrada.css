@@ -4,13 +4,35 @@
     box-sizing: border-box;
 }
 
+.navegacao1 {
+    background-color: #1454a4;
+    display: flex;
+    width: 100%;
+    height: 100%;  
+    flex-wrap: nowrap;
+    
+}
+
+/* botão cadastre-se do header*/
+.cadastre_se{
+    margin-right: 50%;
+    
+}
+
+.links__entrada {
+    margin-top: 2.5%;
+    margin-left: 75%;
+    display: flex;
+    
+}
+
 .container {
     margin: 0 auto;
 }
 
 .container{
     width: 100%;
-    height: 1100px;
+    height: 1000px;
 
     display:  block;
     flex-wrap: wrap;
@@ -20,7 +42,7 @@
     padding: 5px;
 
     background-image: url("../../assets/imagens/IEEEfundo.png");
-    zoom: 65%;
+    
 
 } 
 
@@ -28,21 +50,37 @@
     width: 45%;
     display: block;
     color: #fff;
-    font-size: 16px;
-    top: -10px;
+    font-size: 30px;
+    margin-top: 40px;
     height: 870px;
-    margin-left: 220px;
+    margin-left: 620px;
 }
 .desc2{
-    width: 45%;
+    width: 40%;
     display: block;
     color: #fff;
-    font-size: 16px;
-    top: -10px;
+    font-size: 30px;
     margin-left: 20px;
     margin-top: -610px;
 }
 
+.desc3{
+    width: 45%;
+    display: block;
+    color: #fff;
+    font-size: 30px;
+    margin-top: 300px;
+    margin-left: 370px;
+    height: 40px;
+}
+
+.desc4{
+    width: 35%;
+    display: block;
+    color: #fff;
+    font-size: 30px;
+    margin-left: 400px;
+}
 #gradiente{
     background: linear-gradient(to right, #369DA2, #218CC7, #1885D6);
     -webkit-background-clip: text; /* Para navegadores WebKit (Safari, Chrome) */

@@ -1,5 +1,6 @@
 @import url(fonte.css);
 
+
 * {
     margin: 0;
     padding: 0;
@@ -7,34 +8,55 @@
     
 }
 
+.senha {
+    font-size: 50px;
+}
+
+.icone_olho {
+    width: 45px;
+    height: 25px;
+    margin-bottom: 3px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.603)
+}
+
+.campo_senha {
+    display: flex;
+    align-items: flex-end;
+    gap: 230px;
+}
 .container {
     width: 100%;
-    margin: 0 auto;
+    margin: 0 0;
+    height: 1200px;
     font-family: SansationBold;
+    
+    background: url('../assets/imagens/IEEEfundo.png') no-repeat center center fixed;
+    background-size: cover;
 }
 
 .container-login {
     width: 100%;
     min-height: 100vh;
     
-
+    
     display:  flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     
     padding: 15px;
-
-    background-image: url("../assets/imagens/IEEEfundo.png");
-    background-size: auto;
 } 
 
 .wrap-login { 
-    width: 390px;
+    width: 650px;
+    height: 470px;
     background-color:#fff;
     border-radius: 10px;
     overflow: hidden;
     padding: 30px 55px 33px 55px ;
+
+    font-size: 100px;
 
     box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.2);
 
@@ -42,12 +64,14 @@
 
 .login-form {
     width: 100%;
+    font-size: 24px;
+    
     
 }
 
 .login-form-tittle {
     display: block;
-    font-size: 30px;
+    font-size: 24px;
     color: #133B6C;
 
     line-height: 1.2;
@@ -62,22 +86,24 @@
 }
 
 .wrap-input{
-    width: 100%;
+    width: 120px;
     position: relative;
     border-bottom:2px solid #adadad;
     margin-top: 15px;
     
-    
-
+}
+.email{
+    font-size: 15px;
 }
 
 .input {
-    font-size: 15px;
+    
     color: #133B6C;
     line-height: 1.2;
     border: none;
     display: block;
     
+    font-size: 24px;
 
     width: 100%;
     height: 45px;
@@ -85,10 +111,22 @@
     background-color: transparent ;
 
     padding: 0 5px;
+    
 
 }
+.focus-input:-ms-input-placeholder  {
+    font-size:25px;
+  }
 
-.focus-input {
+.focus-input::-webkit-input-placeholder {
+    font-size:25px;
+  }
+
+.focus-input:-moz-placeholder {
+    font-size:25px;
+  }
+
+ .focus-input {
     position: absolute;
     display: block;
     width: 100%;
@@ -99,6 +137,7 @@
 
     pointer-events: none;
     color: #adadad;
+    
      
 }
 
@@ -144,6 +183,7 @@
 
 }
 
+
 .input:focus{
     outline: 0;
 }
@@ -171,15 +211,16 @@
     flex-wrap: wrap;
     justify-content: center;
     padding-bottom: 13px;
+    
 
 }
 
 .login-form-btn{
-    font-size: 15px;
+    font-size: 24px;
     border: none;
     border-radius: 10px;
     color: #fff;
-
+    font-family: Sansation;
     line-height: 1.2;
     display: flex;
     justify-content: center;
@@ -198,14 +239,14 @@
 .text-center{
     display: flex;
     gap: 5px;
-    /**justify-content: center;
-    align-items: center;*/
+    /*justify-content: center;*/
+    align-items: center;
     left: 10px;
     margin-top: 10px;
 }
 
 .txt1{
-    font-size: 14px;
+    font-size: 16px;
     color: black;
     font-weight: bold;
     line-height: 1.5;
@@ -213,8 +254,12 @@
 }
 
 #txt2 {
-    font-size: 14px;
+    font-size: 24px;
     color: #0C6FE3;
     line-height: 1.5;
     text-decoration: underline;
 }
+
+
+
+

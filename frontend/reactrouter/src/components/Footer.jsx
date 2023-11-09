@@ -7,7 +7,7 @@ import '../styles/footer.css'
 const Footer = () => {
   return (
     <nav className="footer">
-        <div className="footer__conteudo">
+        <div id="footerHtml" className="footer__conteudo">
             <div className="footer__links">
                 <Link to="/" className="link">Início</Link>
                 <Link to="/" className="link">Termos e Políticas</Link>
@@ -34,15 +34,3 @@ const Footer = () => {
 }
 
 export default Footer
-
-
-/*
-// Rodapé
-function Footer() {
-    return (
-      <footer>
-        <p>Rodapé do site.</p>
-      </footer>
-    );
-  }
-  */
