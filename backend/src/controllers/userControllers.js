@@ -5,6 +5,7 @@ module.exports = {
     async indexController(req, res){
         try{
             const results = await readAll();
+            
             res.json(results);
         }catch(e){
             res.send({message:"Erro"})
@@ -12,8 +13,6 @@ module.exports = {
     },
     async readOneController(req, res){
         try{
-            if(!req.params.id) throw new Error('Solicitacao invalida.');
-            
             const result = await readUser(req.params.id)
             
             return res.json(result);
@@ -71,9 +70,8 @@ module.exports = {
     },
     async deleteController(req, res){
         try{
-            if(!req.params.id) throw new Error('Solicitacao invalida.');
-
             const result = await deletaUsuario( req.params.id )
+
             return res.json(result)
         }catch(error){
             return res.json({message:error.message});
@@ -82,7 +80,9 @@ module.exports = {
     async loginController(req, res){
         try{
             const { email , senha } = req.body;
+
             const  login = await loginService(email, senha);
+
             return res.json(login);
         }catch(error){
             return res.json({message:error.message});

@@ -68,7 +68,7 @@ async function cadastroUsuario(nome, sobrenome, telefone, cpf, endereco, email, 
             senha: hashedPassword
         };
         
-        const User = await knex("users").insert(newUser);
+        await knex("users").insert(newUser);
 
         return {
             status: true,
@@ -87,17 +87,29 @@ async function atualizaUsuario( updUser, id ){
                                         .where({id})
                                         .first()
         if(!user)throw new Error("ERRO: Usuario Nao Existe.");
-        
-        const validEmail = await knex('users')
-                                    .select('email')
-                                    .where({email: updUser.email})
-                                    .first()
-        if(validEmail) throw new Error("ERRO: Email ja Cadastrado");
-        //teste telefone para colocar abaixo
-        
-
-
-        //encriptação de senha
+        //teste email
+        if(updUser.email){
+            const validEmail = await knex('users')
+                                        .select('email')
+                                        .where({email: updUser.email})
+                                        .first()
+            if(validEmail) throw new Error("ERRO: Email ja Cadastrado");
+        }
+        //teste telefone 
+        if(updUser.telefone){
+            const validPhone = await knex('users')
+                        .select('*')
+                        .where({ telefone : telefone});
+            if(validPhone) throw new Error("Telefone ja Cadastrado");
+        }
+        //teste cpf
+        if(updUser.cpf){
+            const validCPF = await knex('users')
+                                    .select('*')
+                                    .where({cpf : cpf});
+            if(validCPF) throw new Error("Cpf já Cadastrado!");
+        }
+        //teste senha - encriptação de senha
         if (updUser.senha){
             updUser.senha = await crypt(updUser.senha);
         }
