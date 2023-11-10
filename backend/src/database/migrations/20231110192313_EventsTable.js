@@ -10,7 +10,7 @@ exports.up = async function(knex) {
         table.string('imagem').notNullable();
         table.text('descricao').notNullable();
         table.integer('user_id')
-            .notNullable()
+            .unsigned()
             .references('user.id')
             .onDelete('CASCADE');
     })
