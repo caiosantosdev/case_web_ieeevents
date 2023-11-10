@@ -11,7 +11,7 @@ exports.up = async function(knex) {
         table.text('descricao').notNullable();
         table.integer('user_id')
             .unsigned()
-            .references('user.id')
+            .references('users.id')
             .onDelete('CASCADE');
     })
 };
