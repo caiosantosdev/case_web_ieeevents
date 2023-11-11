@@ -107,9 +107,13 @@ const Cadastro = () => {
                         </div>
                     </div>
                     <div className="container-register-form-btn">
-                    <button id="voltar" className='voltar-form-btn' ><Link className="txt1" to='/'>Voltar</Link>
-                        </button>
-                        <button id="cadastrar" className='register-form-btn' type="submit">Cadastre-se</button>
+                        <Link className="txt1" to='/'>
+                            <button id="voltar" className='voltar-form-btn' >Voltar
+                            </button>
+                        </Link>
+                        <Link className="txt2">
+                            <button id="cadastrar" className='register-form-btn' type="submit">Cadastre-se</button>
+                        </Link>
             
                     </div>
                 </form>

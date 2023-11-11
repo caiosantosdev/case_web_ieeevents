@@ -128,7 +128,7 @@
     width: 100%;
     position: relative;
     border-bottom:2px solid #adadad;
-    margin-bottom:0px;
+    margin-bottom:10px;
     font-family: 'Rubik', sans-serif;
     font-weight: 600;
 
@@ -242,9 +242,14 @@
 
 .container-register-form-btn{
     display: flex;
-    flex-wrap: wrap;
+   
     justify-content: center;
-    padding-bottom: 13px;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    justify-content: space-between;
+    gap: 400px;
+    margin-top: 50px;
     
 
     
@@ -260,13 +265,13 @@
     color: #fff;
     
     line-height: 1.2;
-    font-family: Sansation;
+    font-family: SansationBold;
     display: block;
     justify-content: center;
     align-items: center;
 
-    width: 30%;
-    height: 45px;
+    width: 100px;
+    height: 50px;
     background: var(--fundo-botao);
     
 }
@@ -294,12 +299,14 @@
     justify-content: center;
     align-items: center;
 
-    width: 30%;
-    height: 45px;
+    width: 100px;
+    height: 50px;
     background-color: #fff;
-    font-family: Sansation;
+    font-family: SansationBold;
     
     border-color: #218CC7;
+    font-family: SansationBold;
+    
     
 }
 
@@ -315,19 +322,30 @@
     margin-top: 10px;
 }
 
-.txt2{
-    font-size: 14px;
+.txt1{
+    font-size: 15px;
     color: black;
     font-weight: bold;
     line-height: 1.5;
     text-decoration: none;
-    padding: auto;
+   
+   
+}
+
+.txt2 {
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+    line-height: 1.5;
+    text-decoration: none;
+    
+     
 }
 
 #voltar {
     
     margin-top: 15%;
-    margin-right: 40%;
+ 
     
 }
 

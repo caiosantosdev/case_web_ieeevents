@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container2{
+    margin: 0 auto;
+    width: 100%;
+
+}
+.groupimage{
+    display: block;         
+    
+}
+
+#coracao2 {
+    display: none;
+}
+
+#coracao2:checked + label > svg {
+    animation: preencher;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes preencher {
+    0% {
+        fill: transparent;
+    }
+    100% {
+        fill: #D73B3B;
+    }  
+}
+
+.imagens{
+    background-image: url("../assets/imagens/eventoHalloween.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: blur(10px);
+    width: 100%;
+    height: 500px;
+    
+    /**backdrop-filter: blur(100%);
+    margin-left: 500px   ;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    */
+    
+    
+}   
+
+.imagenev{
+    border-radius: 20px;
+    margin-top: 20px;
+    opacity: 100%;
+    display:  flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: -460px;
+    margin-left: 350px;
+    filter: blur(0px);
+    width: 50%;
+   
+}
+
+.infoev{
+    margin-top: 80px;
+    margin-left: 60px;
+    display: flex;
+}
+
+.nomeEV{
+    font-size: 30px;
+}
+
+.favoritar{
+    margin-top: 10px;
+    display: flex;
+
+}
+
+.like{
+    margin-left:10px;
+    font-size: 30px;
+    margin-top: -33px;
+}
+
+.icone_favoritar{
+    margin-left: 300px;
+    margin-top: -35px;
+    color: red;
+}
+.icone_favoritar:hover{
+    cursor: pointer;
+}
+.icone_favoritar::after{
+    background-color: red;
+}
+.icone_calendario{
+
+    margin-top: 40px;
+    margin-left: -240px;
+}
+
+.icone_relogio{
+    margin-top: 40px;
+    margin-left: 140px;
+}
+.icone_loc{
+    margin-top:100px;
+    margin-left: -210px;
+}

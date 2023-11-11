@@ -8,6 +8,16 @@
     
 }
 
+.navegacao2 {
+    background-color: #1454a4;
+    display: inline-block;
+    width: 100%;
+      
+   
+    
+}
+
+
 .senha {
     font-size: 50px;
 }
@@ -50,7 +60,7 @@
 
 .wrap-login { 
     width: 650px;
-    height: 470px;
+    height: auto;
     background-color:#fff;
     border-radius: 10px;
     overflow: hidden;
@@ -65,8 +75,6 @@
 .login-form {
     width: 100%;
     font-size: 24px;
-    
-    
 }
 
 .login-form-tittle {
@@ -82,11 +90,11 @@
 }
 
 .login-form-tittle img {  
-    width: 50%;
+    width: 35%;
 }
 
-.wrap-input{
-    width: 120px;
+.wrap1-input{
+    width: 525px;
     position: relative;
     border-bottom:2px solid #adadad;
     margin-top: 15px;
@@ -236,7 +244,7 @@
     cursor: pointer;
 }
 
-.text-center{
+.text-link{
     display: flex;
     gap: 5px;
     /*justify-content: center;*/
@@ -245,21 +253,21 @@
     margin-top: 10px;
 }
 
-.txt1{
+.texto1{
     font-size: 16px;
     color: black;
     font-weight: bold;
     line-height: 1.5;
     text-decoration: none;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
 }
 
 #txt2 {
-    font-size: 24px;
+    font-size: 16px;
     color: #0C6FE3;
     line-height: 1.5;
     text-decoration: underline;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
 }
-
-
-
-
