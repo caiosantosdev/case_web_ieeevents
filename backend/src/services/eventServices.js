@@ -9,7 +9,7 @@ async function readAll(){
                                 'data',
                                 'horario',
                                 'imagem',
-                                'descricaoEvento');
+                                'descricao');
         return {eventos};
     }catch(error){
         return {
@@ -27,7 +27,29 @@ async function readEvent(id){
                             'data',
                             'horario',
                             'imagem',
-                            'descricaoEvento')
+                            'descricao')
+                            .where({id_evento : id});
+        if(!event){
+            throw new Error("Evento não existe");
+        }
+        return event;
+    }catch(error){
+        return{
+            status: false,
+            message: error.message
+        };
+    }
+}
+async function readEventbyUser(id){
+    try{
+        const event = await knex('events')
+                            .select('nome',
+                            'local',
+                            'endereco',
+                            'data',
+                            'horario',
+                            'imagem',
+                            'descricao')
                             .where({user_id : id});
         if(!event){
             throw new Error("Evento não existe");
@@ -40,27 +62,19 @@ async function readEvent(id){
         };
     }
 }
-async function createEvent(nome, local, endereco, data, horario, imagem, descricaoEvento, user_id){
+async function createEvent(newEvent){
     try{
         const validName = await knex('events')
                                 .select('*')
-                                .where({nome : nome});
+                                .where({nome : nome})
+                                .first()
         if(validName) throw new Error("Evento com esse nome ja cadastrado.");
-        const newEvent = {
-            nome: nome,
-            local: local,
-            endereco: endereco,
-            data: data,
-            horario: horario,
-            imagem: imagem,
-            descricao: descricaoEvento,
-            user_id: user_id
-        };
+        
         await knex('events').insert(newEvent);
 
         return {
             status: true,
-            message: "Usuario Cadastrado com Sucesso"
+            message: "Evento Cadastrado com Sucesso"
         };
 
     }catch(error){
@@ -70,12 +84,45 @@ async function createEvent(nome, local, endereco, data, horario, imagem, descric
         };
     };
 }
+async function updateEvent(updEvent, id){
+    try{
 
-
-
-
-
-
+        await knex('events')
+            .update( updEvent )
+            .where({ id_evento: id })
+        
+        return {
+            status: true,
+            message: "Evento Atualizado com Sucesso"
+        };
+    }catch(error){
+        return {
+            status: false,
+            message: error.message,
+        };
+    };
+}
+async function deleteEvent(id){
+    try{
+        const user = await knex('events').select('*')
+                                            .where({ id_evento: id })
+                                            .first()
+        if(!user)throw new Error("ERRO: Evento Nao Existe.");
+        
+        await knex('events')
+                .where({ id_evento: id })
+                .delete()    
+        return {
+            status: true,
+            message: "Evento Deletado com Sucesso"
+        };
+    }catch(error){
+        return {
+            status: false,
+            message: error.message,
+        };
+    }
+}
 
 
 
@@ -83,7 +130,8 @@ async function createEvent(nome, local, endereco, data, horario, imagem, descric
 module.exports = {
     readAll,
     readEvent,
+    readEventbyUser,
     createEvent,
-    // updateEvent,
-    // deleteEvent
+    updateEvent,
+    deleteEvent
 }

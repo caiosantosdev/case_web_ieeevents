@@ -1,9 +1,9 @@
-const { readAll, readEvent, createEvent, updateEvent, deleteEvent} = require('./../services/eventServices');
+const { readAll, readEvent, readEventbyUser, createEvent, updateEvent, deleteEvent} = require('./../services/eventServices');
 
 module.exports = {
     async indexController(req, res){
         try{
-            const events = await readAll();
+            const events = await readAll(req.query);
             res.json(events);
         }catch(error){
             res.json({message:error.message});
@@ -12,6 +12,16 @@ module.exports = {
     async readOneController(req, res){
         try{
             const event = await readEvent(req.params.id)
+            
+            return res.json(event);
+            
+        }catch(error){
+            res.json({message:error.message});
+        }
+    },
+    async readbyUserController(req, res){
+        try{
+            const event = await readEventbyUser(req.params.id)
             
             return res.json(event);
             
@@ -28,9 +38,10 @@ module.exports = {
                 data,
                 horario,
                 imagem,
-                descricaoEvento,
-                user_id: req.params.id
+                descricao,
+                user_id
             } = req.body;
+            event.user_id = req.params.id
             //console.log("passou do create");
             console.log(event);
             const eventResponse = await createEvent(event);
@@ -42,6 +53,7 @@ module.exports = {
     async updateController(req, res){
         try{
             if(!req.params.id) throw new Error('Solicitacao invalida.');
+
             const updEvent = {
                 nome,
                 local,
@@ -49,13 +61,10 @@ module.exports = {
                 data,
                 horario,
                 imagem,
-                descricaoEvento,
-                id_user: req.params.id
+                descricao
             } = req.body;
-
-            const { id } = req.params.id;
             
-            const updated = await updateEvent( updEvent , id );
+            const updated = await updateEvent( updEvent , req.params.id );
             return res.json(updated);
         }catch(error){
             return res.json({message:error.message});

@@ -18,8 +18,9 @@ routes.post('/user/login', userController.loginController);
 //EVENTO
 routes.get('/events', eventController.indexController)
 routes.get('/events/:id', eventController.readOneController);
+routes.get('/events/user/:id', eventController.readbyUserController);
 routes.post('/events/:id', eventController.createController);
-// routes.put('/events/:id', eventController.updateController);
-// routes.delete('/events/:id', eventController.deleteController);
+routes.put('/events/:id', eventController.updateController);
+routes.delete('/events/:id', eventController.deleteController);
     
 module.exports = routes

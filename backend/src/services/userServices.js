@@ -98,15 +98,17 @@ async function atualizaUsuario( updUser, id ){
         //teste telefone 
         if(updUser.telefone){
             const validPhone = await knex('users')
-                        .select('*')
-                        .where({ telefone : telefone});
+                                    .select('*')
+                                    .where({ telefone : telefone})
+                                    .first()
             if(validPhone) throw new Error("Telefone ja Cadastrado");
         }
         //teste cpf
         if(updUser.cpf){
             const validCPF = await knex('users')
                                     .select('*')
-                                    .where({cpf : cpf});
+                                    .where({cpf : cpf})
+                                    .first()
             if(validCPF) throw new Error("Cpf já Cadastrado!");
         }
         //teste senha - encriptação de senha
