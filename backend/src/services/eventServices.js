@@ -1,5 +1,18 @@
 const knex = require('./../database/index');
 
+async function readAlladm(){
+    try{
+        const eventos = await knex('events')
+                            .select('*');
+        return {eventos};
+    }catch(error){
+        return {
+            status: false,
+            message: error.message,
+        };
+    }              
+}
+
 async function readAll(){
     try{
         const eventos = await knex('events')
@@ -64,9 +77,14 @@ async function readEventbyUser(id){
 }
 async function createEvent(newEvent){
     try{
+        const validUser = await knex('users')
+                                .where({id: newEvent.user_id})
+                                .first()
+        if(!validUser) throw new Error("Usuario não Existe");
+        
         const validName = await knex('events')
                                 .select('*')
-                                .where({nome : nome})
+                                .where({nome: newEvent.nome})
                                 .first()
         if(validName) throw new Error("Evento com esse nome ja cadastrado.");
         
@@ -125,9 +143,8 @@ async function deleteEvent(id){
 }
 
 
-
-
 module.exports = {
+    readAlladm,
     readAll,
     readEvent,
     readEventbyUser,

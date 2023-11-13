@@ -16,7 +16,8 @@ routes.post('/user/login', userController.loginController);
 
 
 //EVENTO
-routes.get('/events', eventController.indexController)
+routes.get('/events/adm', eventController.indexadmController);
+routes.get('/events', eventController.indexController);
 routes.get('/events/:id', eventController.readOneController);
 routes.get('/events/user/:id', eventController.readbyUserController);
 routes.post('/events/:id', eventController.createController);

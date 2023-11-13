@@ -1,4 +1,3 @@
-// readOne, cadastrarUsuario, atualizarUsuario, deletarUsuario.
 const knex = require('./../database/index');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -10,6 +9,7 @@ async function crypt(senha){
         return await bcrypt.hash(senha, saltRounds);
 }
 async function readAll(){
+    try{
         const usuarios = await knex('users').select('nome' ,
                                                      'sobrenome',
                                                       'telefone',
@@ -17,6 +17,9 @@ async function readAll(){
                                                         'endereco',
                                                          'email');
         return {usuarios};
+    }catch(e){
+        throw e;
+      }
 }
 async function readUser(id){
     try{
@@ -32,14 +35,12 @@ async function readUser(id){
 }
 async function cadastroUsuario(nome, sobrenome, telefone, cpf, endereco, email, senha){
     try{
-        //console.log("validando email");
+
         const validEmail = await knex('users')
                                 .select('email')
                                 .where({email: email})
                                 .first()
-        //console.log(validEmail);
         if(validEmail) throw new Error("ERRO: Email já Cadastrado");
-        //console.log("email validado");
 
         //verificacao de "cpf ja existente"
         const validCPF = await knex('users')
@@ -115,7 +116,6 @@ async function atualizaUsuario( updUser, id ){
         if (updUser.senha){
             updUser.senha = await crypt(updUser.senha);
         }
-        //console.log(updUser)
         //update
         await knex('users')
             .update( updUser )
@@ -142,6 +142,10 @@ async function deletaUsuario(id){
         await knex('users')
             .where({ id })
             .delete()
+        
+        await knex('events')
+                .where({ user_id : id})
+                .delete();
         //colocar todos os deletes das tabelas quando fizer eventos e interesses.
         return {
             status: true,

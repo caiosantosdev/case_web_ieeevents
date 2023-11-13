@@ -1,9 +1,17 @@
-const { readAll, readEvent, readEventbyUser, createEvent, updateEvent, deleteEvent} = require('./../services/eventServices');
+const { readAlladm, readAll, readEvent, readEventbyUser, createEvent, updateEvent, deleteEvent} = require('./../services/eventServices');
 
 module.exports = {
+    async indexadmController(req, res){
+        try{
+            const events = await readAlladm();
+            res.json(events);
+        }catch(error){
+            res.json({message:error.message});
+        }
+    },
     async indexController(req, res){
         try{
-            const events = await readAll(req.query);
+            const events = await readAll();
             res.json(events);
         }catch(error){
             res.json({message:error.message});
@@ -43,7 +51,7 @@ module.exports = {
             } = req.body;
             event.user_id = req.params.id
             //console.log("passou do create");
-            console.log(event);
+            // console.log(event);
             const eventResponse = await createEvent(event);
             return res.json(eventResponse);
         }catch(error){
