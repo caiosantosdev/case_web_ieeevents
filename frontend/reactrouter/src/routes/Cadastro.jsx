@@ -11,6 +11,7 @@ import {Eye} from "phosphor-react";
 
 
 const Cadastro = () => {
+    
     const [email, setEmail] = useState("")
     const [senha, setSenha] = useState("")
     const [name, setName] = useState("")
@@ -18,6 +19,7 @@ const Cadastro = () => {
     const [cpf, setCpf] = useState("")
     const [textEnd, setTextEnd] = useState("")
     const [tel, setTel] = useState("")
+    
     const[hidden, sethidden] = useState(false)
 
     const visualizar_senha = () => {
@@ -25,10 +27,31 @@ const Cadastro = () => {
     }
 
     function formatName(name) {
-        if (!name) return ''; 
+        if (!name) return '';
         name = name.trim(); 
         return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();}
 
+    const handleForm = async () => {
+        try{
+            const response = await fetch('localhost:6000/user',{
+                method: 'POST',
+                body: JSON.stringify({
+                    nome: name,
+                    sobreneme: lastName,
+                    telefone: tel,
+                    cpf: cpf,
+                    endereco: textEnd,
+                    email: email,
+                    senha: senha
+                })
+            })
+            const json = await response.json()
+            console.log(response.status)
+            console.log(json)
+        } catch(error){
+            console.log("erro")
+        }
+    }
    
 
     return (
@@ -44,7 +67,7 @@ const Cadastro = () => {
             
                 <div className="container-register">
                     <div className="wrap-register">
-                <form className="register-form">
+                <form className="register-form" onSubmit={handleForm}>
             
                         <div className="container__titulo">
                             <img className="logo" src={logo} alt="IEEEvents" />

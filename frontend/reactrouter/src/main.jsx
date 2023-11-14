@@ -13,7 +13,7 @@ import PaginaDoEvento from './routes/PaginaDoEvento.jsx';
 import MeusEventos from './routes/Meuseventos.jsx';
 import Login from './routes/login.jsx';
 import CriacaoEdicaoEvento from './routes/CriacaoEdicaoEvento.jsx';
-import Cadastro from './routes/cadastro.jsx';
+import Cadastro from './routes/Cadastro.jsx';
 import PaginaErro from './routes/PaginaErro.jsx';
 
 
