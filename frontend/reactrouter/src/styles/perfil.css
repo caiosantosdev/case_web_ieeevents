@@ -1,0 +1,82 @@
+.navegacao_p {
+    background-color: #1454a4;
+    display: flex;
+    width: 100%;
+    height: 80px;  
+   align-items: center;
+   text-decoration: none;
+   justify-content: space-between;
+}
+
+.container__pesquisa {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+}
+
+.cabecalho__pesquisa {
+    text-align: center;
+    
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 0.8em;
+    width: 30%;
+    height: 40%;
+
+}
+
+.cabecalho__pesquisa::placeholder {
+    color: gray;
+    
+    text-align: center;
+    background: url(../assets/imagens/Pesquisa.svg) no-repeat;
+  
+}
+
+.calendario {
+    width: 30px;
+   
+}
+
+.perfil {
+    width: 25px;
+}
+.header_linkp {
+    text-decoration: none;
+    color: white;
+    font-family: SansationLight;
+    font-size: 16px;
+    text-wrap: nowrap;
+   
+
+}
+
+.nav_direita {
+    margin-right: 30px;
+    display: flex;
+    gap: 45px;
+}
+
+.nav__eventos {
+    text-align: center;
+    display: flex;
+    
+}
+
+.nav__meuperfil {
+    text-align: center;
+    display: flex;    
+}
+
+.conteudo {
+    background-image: url('../assets/imagens/IEEEfundopreto.png');
+    background-size: cover;
+    width: 100%;
+    margin: 0 0;
+    height: 1200px;
+    font-family: SansationBold;
+}
+
+
