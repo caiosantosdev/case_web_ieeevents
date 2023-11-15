@@ -1,3 +1,8 @@
+:root {
+    --fundo-botao: linear-gradient(90deg, #369DA2 5.71%, #218CC7 67.8%, #1785D7 95.71%, #1885D6 95.71%);
+}
+
+
 .navegacao_p {
     background-color: #1454a4;
     display: flex;
@@ -6,6 +11,7 @@
    align-items: center;
    text-decoration: none;
    justify-content: space-between;
+  
 }
 
 .container__pesquisa {
@@ -77,6 +83,113 @@
     margin: 0 0;
     height: 1200px;
     font-family: SansationBold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.container__perfil {
+    
+    
+    background-color: white;
+    width: auto; 
+    display: flex;  
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    border-radius: 40px;
 
+}
+
+.icone-user {
+    width: 150px;
+}
+
+.campo-perfil::placeholder {
+    background-image: url(../assets/imagens/edit.svg);
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: right;
+    text-align: left;
+    padding: 10px;
+    font-family: SansationBold;
+}
+
+#inputp {
+    border-radius: 10px;   
+    height: 40px;
+    width: 400px;
+    padding-right: 5px;
+}
+
+.campo-perfil1::placeholder {
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: right;
+    text-align: left;
+    padding: 10px;
+    font-family: SansationBold;
+}
+
+.nome-sobre {
+    display: flex;
+    gap: 50px;
+    margin-top: 30px;
+}
+
+.telefone-CPF {
+    display: flex;
+    gap: 50px;
+    margin-top: 30px;
+
+}
+
+.alone-input {
+    #inputp {
+        width: 850px;
+    }
+    margin-top: 30px;
+ 
+}
+ 
+.parag {
+    font-family: SansationBold;
+    font-size: 20px;
+}
+
+.deletar {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    
+    font-weight: 700;
+    color: red;
+    margin-right: 580px;
+}
+
+.lixeira {
+    width: 30px;
+}
+
+.botoes {
+    display: flex;
+    gap: 20px;
+    margin-left: 600px;
+}
+
+.botao {
+    background-color: white;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 170px;
+    height: 50px;
+    font-family: SansationBold;
+    border-color: #218CC7;
+}
+
+#salvar {
+    border-color: transparent;
+    background-image: var(--fundo-botao);
+    color: white;
+}
