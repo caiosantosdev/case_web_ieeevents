@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+ 
 }
 
 .container2{
@@ -10,7 +11,8 @@
 
 }
 .groupimage{
-    display: block;         
+    display: block;  
+    margin-bottom: 200px;       
     
 }
 
@@ -71,30 +73,45 @@
 }
 
 .infoev{
-    margin-top: 80px;
+    margin-top: 10px;
     margin-left: 60px;
     display: flex;
+    flex-direction: column;
+    gap: 50px;
 }
 
 .nomeEV{
     font-size: 30px;
+    font-family: SansationBold;
+    font-size: 40px;
+    text-wrap: nowrap;
+    
 }
 
 .favoritar{
-    margin-top: 10px;
+    
     display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-left: 100px;
+    gap: 10px;
+    margin-bottom: 210px;
 
 }
-
+.favoritar_txt{
+    font-family: SansationBold;
+    font-size: 25px;
+}
 .like{
-    margin-left:10px;
+  
     font-size: 30px;
-    margin-top: -33px;
+
 }
 
 .icone_favoritar{
-    margin-left: 300px;
-    margin-top: -35px;
+  
+
     color: red;
 }
 .icone_favoritar:hover{
@@ -104,50 +121,46 @@
     background-color: red;
 }
 .icone_calendario{
-
-    margin-top: 40px;
-    margin-left: -240px;
+    display: flex;
+  
 }
-
 .data{
     display: flex;
-    margin-left: 50px;
-    margin-top: -120px;
-    font-size: 30px;
+    font-family: SansationBold;
+    font-size: 22px;
 }
 
 .hora{
     display: flex;
-    margin-left: 240px;
-    margin-top: -35px;
-    font-size: 30px;
+    font-family: SansationBold;
+    font-size: 22px;
 }
 
 .local{
     display: flex;
-    margin-left: 50px;
-    margin-top: 50px;
-    font-size: 30px;
+    font-family: SansationBold;
+    font-size: 22px;
 }
 
 .icone_relogio{
     display: flex;
-    margin-top: -50px;
-    margin-left: 190px;
+
+   
 }
 .icone_loc{
     display: flex;
-    margin-top: 30px;
-    margin-left: 0px;
+   
 }
 
 .acesso{
-    display: block;
+    display:block;
     height: 300px;
     width: 350px;
-    margin-left: 1350px;
     background-color: rgba(145, 153, 155, 0.1);
     border-radius: 20px;
+    margin-left: 400px;
+    margin-bottom: 25px;
+    font-family: Sansation;
 }
 .box-ingresso{
     display:block;
@@ -162,19 +175,18 @@
     justify-content: flex-start;
     margin-left: 20px;
     margin-top: -50px;
-    font-size: 35px;
+    font-size: 30px;
     color: #fff;
-    font-weight: bold;
+    font-family: SansationBold;
 }
-.nomeev{
+.nome_ev{
     display: flex;
-    align-items:flex-start;
-    justify-content: flex-start;
-    margin-left: 10px;
-    margin-top: 40px;
+    padding: 25px;
+    justify-content: center;
+   
     font-size: 30px;
     color: black;
-    font-weight: bold;
+    font-family: SansationBold;
 }
 
 .btn-ing{
@@ -185,31 +197,35 @@
     font-weight: bold;
 
     line-height: 1.2;
-    text-transform: uppercase;
+  
     display: flex;
     justify-content: center;
     align-items: center;
 
     width: 50%;
     height: 50px;
-    background:linear-gradient(  #369DA2, #218CC7, #1885D6 );
-    margin-top: 100px;
+    background:linear-gradient(to right,  #369DA2, #218CC7, #1885D6 );
+    margin-top: 80px;
     margin-left: 80px;
 }
 .btn-ing:hover{
     cursor: pointer;
 }
 
-.info_sipc{
-    display: block;
+.infos_ipc{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
     background-color:  rgba(145, 153, 155, 0.2);
     width: 100%;
-    height: 700px;
-    margin-bottom: 360px;
+    padding: 100px;
+    font-family: Sansation;
+    
+    
+   
 }
 .desc{
     display: block;
-    margin-top: 40px;
 }
 .descricao{
     display: flex;
@@ -219,4 +235,80 @@
     font-weight: bold;
     margin-left: 30px;
     
+}
+.detalhes{
+    display: flex;
+    margin-left: 30px;
+    margin-top: 40px;
+    font-size: 24px;
+}
+
+.politica{
+    display: flex;
+    align-items:flex-start;
+    justify-content: flex-start;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+.detalhes2{
+    margin-left: 30px;
+    margin-top: 40px;
+    font-size: 24px;
+}
+
+.voltar-home{
+    font-size: 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    color:black;
+    text-decoration: none;
+    font-family: SansationBold;
+    line-height: 1.2;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 20%;
+    height: 50px;
+    background-color: #fff;
+    margin-right: 1250px;
+  
+    border-color: rgba(34, 143, 160, 1);
+    margin-bottom: 0px;
+}
+
+.voltar-home:hover{
+    cursor: pointer;
+}
+
+.containere {
+    display: flex;
+}
+
+.container-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.end-evento  {
+    display: flex;
+    align-items: center;
+}
+
+
+.container-botao {
+    margin-bottom: 100px;
+    margin-left: 50px;
+    margin-top: 55px;
+}
+
+.voltar {
+    text-decoration: none;
+    text-transform: capitalize;
+   
 }

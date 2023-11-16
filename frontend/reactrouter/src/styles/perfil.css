@@ -193,3 +193,7 @@
     background-image: var(--fundo-botao);
     color: white;
 }
+
+.test {
+    text-decoration: none;
+}

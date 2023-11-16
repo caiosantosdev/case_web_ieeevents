@@ -22,14 +22,14 @@ import "../styles/criacao.css"
                 </div>
                 <div className="nav_direita">
                   <div className='nav__eventos'>
-                    <Link to="/meus-eventos">
+                    <Link to="/meus-eventos" className='test'>
                         <img src={calendario} alt="Logo" className="calendario"/>
                         <p className='header_linkp' >Meus eventos</p>
                     </Link>
                     
                   </div>
                   <div className='nav__meuperfil'>
-                  <Link to="/perfil">
+                  <Link to="/perfil" className='test'>
                         <img src={perfil} alt="Logo" className="perfil"/>
                         <p className='header_linkp' >Meu perfil</p>
                     </Link>
