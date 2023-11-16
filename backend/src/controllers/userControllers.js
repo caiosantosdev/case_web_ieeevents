@@ -26,13 +26,13 @@ module.exports = {
             const {
                 nome,
                 sobrenome,
-                telefone,
                 cpf,
+                telefone,
                 endereco,
                 email,
                 senha
             } = req.body;
-            //console.log("passou do create");
+            
             const cadastrado = await cadastroUsuario(
                 nome,
                 sobrenome,
