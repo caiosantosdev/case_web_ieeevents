@@ -1,20 +1,40 @@
+.navegacao_pp {
+    background-color: #1454a4;
+    display: flex;
+    width: 100%;
+    height: 100%;  
+   align-items: center;
+   text-decoration: none;
+   justify-content: space-between;
+   
+  
+}
+
 .destaque{
     width: 100%;
     max-width: 800px;
-    margin: 0 auto;
-    min-height: 100vh;
+    
+    
     display: flex;
     align-items: center;
     justify-content: center;
+
 }
 .inner{
     display: flex;
 }
 
 .item{
-    min-height: 200px;
-    min-width: 400px ;
-    padding: 12px;
+    min-height: 100%;
+    min-width: 100%;
+    margin-right: 50px;
+   
+}
+
+#secundario {
+    min-height: 45%;
+    min-width: 45%; 
+    margin-right: 50px;   
 }
 
 .item img{
@@ -29,3 +49,68 @@
     cursor: grab;
     overflow: hidden;
 }
+
+.principal-prim {
+    
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-family: SansationBold;
+    background-color: rgb(243, 200, 243); 
+    padding: 30px;
+}
+
+.secao2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+    margin: 20px 0;
+    gap: 30px;
+    font-family: SansationBold;
+    margin-top: 70px;
+}
+
+
+
+#GetOutFooter{
+    text-align: center;
+}
+
+.secao3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+    margin: 20px 0;
+    gap: 30px;
+    font-family: SansationBold;
+    margin-top: 70px;
+    margin-bottom: 80px;
+}
+
+.criar-evento {
+    background-color: #ffffff;
+    border: 2px solid #1454a4;
+    border-radius: 10px; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    font-family: SansationBold;
+    cursor: pointer;
+
+    
+    
+    
+  }
+  
+  .criar-evento:hover {
+    background-color: #1454a4; 
+    color: #ffffff; 
+  }
+  
